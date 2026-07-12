@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useChat } from "@ai-sdk/react";
 import { suggestedQuestions } from "@/data/knowledge";
 import { Logo } from "@/components/brand/logo";
+import { RichText } from "./rich-text";
 import { cn } from "@/lib/utils";
 
 /**
@@ -180,7 +181,7 @@ function Message({
           : "rounded-2xl rounded-tl-sm bg-cream text-ink",
       )}
     >
-      {text}
+      {isUser ? text : <RichText text={text} />}
     </div>
   );
 }

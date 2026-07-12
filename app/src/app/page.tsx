@@ -1,15 +1,18 @@
 import Link from "next/link";
 import { CatalogGrid } from "@/components/catalog/catalog-grid";
 import { LeadForm } from "@/components/catalog/lead-form";
+import { HeroVideo } from "@/components/brand/hero-video";
 import { ButtonLink } from "@/components/ui/button";
 import { whatsappLink } from "@/lib/utils";
 import { products, collections } from "@/data/products";
 
 export default function Home() {
   return (
-    <div className="mx-auto max-w-6xl px-4 sm:px-6">
-      {/* HERO */}
-      <section className="py-16 text-center sm:py-24">
+    <div>
+      {/* HERO con video de olas de fondo */}
+      <section className="relative overflow-hidden px-4 py-20 text-center sm:px-6 sm:py-28">
+        <HeroVideo />
+        <div className="mx-auto max-w-6xl">
         <p className="mb-4 inline-block rounded-full border border-gold/30 bg-cream/60 px-4 py-1.5 text-xs font-medium uppercase tracking-widest text-gold-deep">
           🐚 Santa Marta, Colombia
         </p>
@@ -43,8 +46,10 @@ export default function Home() {
           <Stat value="100%" label="hecho a mano" />
           <Stat value="🇨🇴" label="envíos nacionales e internacionales" />
         </div>
+        </div>
       </section>
 
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
       {/* CATÁLOGO */}
       <section id="catalogo" className="scroll-mt-20 py-8">
         <div className="mb-10 text-center">
@@ -78,6 +83,7 @@ export default function Home() {
       <section className="mx-auto max-w-lg py-8">
         <LeadForm />
       </section>
+      </div>
     </div>
   );
 }
