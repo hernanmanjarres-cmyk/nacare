@@ -102,6 +102,50 @@ function ChallengeCard({
           <p className="mt-1.5 text-sm text-ink-soft">{c.tagline}</p>
           <p className="mt-1 text-xs text-ink-soft/70">✅ {c.solves}</p>
 
+          {/* Stack técnico + cursos (desplegable) */}
+          <details className="group mt-3">
+            <summary className="cursor-pointer list-none text-xs font-medium text-gold-deep hover:text-gold">
+              <span className="group-open:hidden">▸ Ver stack técnico y cursos</span>
+              <span className="hidden group-open:inline">▾ Ocultar detalle técnico</span>
+            </summary>
+
+            <div className="mt-3 space-y-3 border-l-2 border-gold/20 pl-4">
+              <div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wider text-ink-soft/70">
+                  Stack
+                </p>
+                <ul className="mt-1.5 space-y-1.5">
+                  {c.stack.map((t) => (
+                    <li key={t.name} className="text-xs text-ink-soft">
+                      <span className="font-medium text-ink">{t.name}</span> —{" "}
+                      {t.why}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wider text-ink-soft/70">
+                  Aprende este stack en Platzi
+                </p>
+                <ul className="mt-1.5 flex flex-wrap gap-1.5">
+                  {c.courses.map((course) => (
+                    <li key={course.url}>
+                      <a
+                        href={course.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-block rounded-full border border-gold/30 bg-cream/60 px-2.5 py-1 text-[0.7rem] text-gold-deep transition-colors hover:bg-cream"
+                      >
+                        {course.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </details>
+
           <div className="mt-4 flex flex-wrap gap-2">
             {canVote ? (
               <ButtonLink
