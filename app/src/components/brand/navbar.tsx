@@ -7,6 +7,7 @@ const links = [
   { href: "/", label: "Catálogo" },
   { href: "/asistente", label: "Asistente" },
   { href: "/quiz", label: "Tu pieza ideal" },
+  { href: "/vota", label: "Apóyanos 🐚" },
 ];
 
 /** Navbar compartido por los 3 retos. */
