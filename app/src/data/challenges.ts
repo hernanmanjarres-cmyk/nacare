@@ -83,7 +83,7 @@ export const challenges: Challenge[] = [
       { name: "Git + GitHub", why: "Historial de commits limpio y repo público para clonar y reutilizar." },
     ],
     courses: [
-      { name: "Curso de Fundamentos de Supabase", url: "https://platzi.com/cursos/supabase/" },
+      { name: "Curso de Supabase", url: "https://platzi.com/cursos/supabase/" },
       { name: "Curso de Supabase Avanzado", url: "https://platzi.com/cursos/supabase-avanzado/" },
       { name: "Curso de Next.js 14", url: "https://platzi.com/cursos/nextjs-14/" },
       { name: "Curso de Next.js: Seguridad Web con OWASP", url: "https://platzi.com/cursos/nextjs-owasp/" },
@@ -110,7 +110,7 @@ export const challenges: Challenge[] = [
     ],
     courses: [
       { name: "Curso de React.js", url: "https://platzi.com/cursos/reactjs/" },
-      { name: "Curso de Fundamentos de Supabase", url: "https://platzi.com/cursos/supabase/" },
+      { name: "Curso de Supabase", url: "https://platzi.com/cursos/supabase/" },
       { name: "Curso de Next.js 14", url: "https://platzi.com/cursos/nextjs-14/" },
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
