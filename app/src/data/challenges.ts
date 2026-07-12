@@ -129,4 +129,5 @@ export const challenges: Challenge[] = [
 ];
 
 /** Link general del concurso, por si alguien quiere ver la competencia. */
-export const CONTEST_URL = "https://platzi.com/vibe-coders";
+export const CONTEST_URL =
+  "https://platzi.com/cursos/vibecoders-league-1782929927/";
