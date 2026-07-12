@@ -35,6 +35,8 @@ export interface Challenge {
   courses: Course[];
   /** Ruta interna para probar la demo en tu propio sitio. */
   demoPath: string;
+  /** Link al código/documentación de este reto en GitHub. */
+  repoUrl: string;
   /** Link directo a TU comentario en Platzi (pégalo cuando publiques). */
   voteUrl: string;
   /** true cuando ya publicaste el comentario y pegaste el voteUrl. */
@@ -64,8 +66,9 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/asistente",
-    voteUrl:
-      "https://platzi.com/discusiones/vibecoders-league-1782929927/5675391-dejenme-contarles-por-que-este-proyecto-me-importa-tanto-se-llama-nacare-y-es-el-emprendimiento-de-joyeria-artesanal-de-una-amiga-y-su-socia-en-santa-marta-colombia-pero-detras-de-estas-piezas-hechas-a-mano-hay-una-historia-que-me-marco-una-de-ellas-siend/",
+    repoUrl:
+      "https://github.com/hernanmanjarres-cmyk/nacare/tree/main/retos/reto-01-asistente",
+    voteUrl: "https://platzi.com/comentario/5675405/",
     published: true,
   },
   {
@@ -91,6 +94,8 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/",
+    repoUrl:
+      "https://github.com/hernanmanjarres-cmyk/nacare/tree/main/retos/reto-02-catalogo",
     voteUrl: "https://platzi.com/comentario/5675393/",
     published: true,
   },
@@ -116,6 +121,8 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/quiz",
+    repoUrl:
+      "https://github.com/hernanmanjarres-cmyk/nacare/tree/main/retos/reto-03-quiz",
     voteUrl: "https://platzi.com/comentario/5675394/",
     published: true,
   },

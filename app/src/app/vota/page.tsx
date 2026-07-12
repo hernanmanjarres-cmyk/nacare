@@ -169,6 +169,16 @@ function ChallengeCard({
             >
               Probar demo
             </ButtonLink>
+
+            <ButtonLink
+              href={c.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="ghost"
+              size="sm"
+            >
+              {"</>"} Ver código
+            </ButtonLink>
           </div>
         </div>
       </div>
