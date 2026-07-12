@@ -15,9 +15,14 @@ export function getOpenRouter() {
   return createOpenRouter({ apiKey });
 }
 
-/** Modelo por defecto: bueno y barato. Configurable por env. */
+/**
+ * Modelo por defecto: bueno y barato. Configurable por env (OPENROUTER_MODEL).
+ * Nota: los IDs de modelo en OpenRouter cambian con el tiempo. Si este deja de
+ * existir ("No endpoints found"), consulta https://openrouter.ai/models y
+ * actualiza este valor o la env var OPENROUTER_MODEL.
+ */
 export const AI_MODEL =
-  process.env.OPENROUTER_MODEL ?? "google/gemini-2.0-flash-001";
+  process.env.OPENROUTER_MODEL ?? "google/gemini-3.5-flash";
 
 /**
  * System prompt: identidad + base de conocimiento + la REGLA DE ORO del reto.

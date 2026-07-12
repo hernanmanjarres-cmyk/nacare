@@ -38,7 +38,22 @@ export async function POST(req: NextRequest) {
     system: buildSystemPrompt(),
     messages: await convertToModelMessages(messages),
     temperature: 0.6,
+    // Respuestas del asistente son breves (2-4 frases). Limitar la salida evita
+    // que OpenRouter reserve su máximo (65k tokens) — así cabe en el crédito
+    // gratis y las respuestas son más ágiles.
+    maxOutputTokens: 500,
+    onError({ error }) {
+      // Loguea el error real de OpenRouter en los logs de Vercel
+      console.error("[chat] streamText error:", error);
+    },
   });
 
-  return result.toUIMessageStreamResponse();
+  // Expone el mensaje de error real al cliente (útil para diagnosticar).
+  return result.toUIMessageStreamResponse({
+    onError: (error) => {
+      const msg =
+        error instanceof Error ? error.message : "Error desconocido";
+      return `Lo siento, tuve un problema: ${msg}`;
+    },
+  });
 }
