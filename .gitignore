@@ -29,3 +29,7 @@ npm-debug.log*
 # Archivos internos de Forge
 app/CLAUDE.md
 app/AGENTS.md
+
+# Documentos privados (historia personal + borradores de posts) — NO publicar
+HISTORIA-NACARE.md
+POSTS-PLATZI.md
