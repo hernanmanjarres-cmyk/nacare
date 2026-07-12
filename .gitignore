@@ -1,0 +1,31 @@
+# Dependencias
+node_modules/
+**/node_modules/
+
+# Builds
+.next/
+**/.next/
+out/
+dist/
+
+# Variables de entorno (NUNCA subir secretos)
+.env
+.env.local
+.env*.local
+**/.env.local
+
+# Sistema
+.DS_Store
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Vercel
+.vercel
+
+# Archivos internos de Forge
+app/CLAUDE.md
+app/AGENTS.md

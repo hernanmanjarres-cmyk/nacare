@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/*
+  Design System — Nacaré.Sm
+  Paleta extraída del Instagram real @nacare.sm: base arena/crema cálida,
+  acento dorado, tonos tierra costeños. Mood: artesanal, costero, romántico.
+*/
+
+:root {
+  /* Base cálida (fondo arena/crema del feed de IG) */
+  --nacar-sand: #efe6da;
+  --nacar-cream: #f7f1e8;
+  --nacar-shell: #fbf7f0;
+
+  /* Acento principal: dorado / nácar */
+  --nacar-gold: #c9a86a;
+  --nacar-gold-deep: #a8843f;
+
+  /* Tonos tierra (piezas) */
+  --nacar-olive: #6b7a4c;
+  --nacar-terracotta: #b5652e;
+  --nacar-clay: #8a5a3c;
+
+  /* Acentos pastel/vivos (colecciones Bubblegum, mar) */
+  --nacar-rose: #e9a6c4;
+  --nacar-lila: #c6a4d9;
+  --nacar-mint: #7fd1b9;
+  --nacar-coral: #c0392b;
+
+  /* Neutros de texto sobre fondo cálido */
+  --nacar-ink: #3a322a;
+  --nacar-ink-soft: #6b6155;
+
+  --background: var(--nacar-shell);
+  --foreground: var(--nacar-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-sand: var(--nacar-sand);
+  --color-cream: var(--nacar-cream);
+  --color-shell: var(--nacar-shell);
+  --color-gold: var(--nacar-gold);
+  --color-gold-deep: var(--nacar-gold-deep);
+  --color-olive: var(--nacar-olive);
+  --color-terracotta: var(--nacar-terracotta);
+  --color-clay: var(--nacar-clay);
+  --color-rose: var(--nacar-rose);
+  --color-lila: var(--nacar-lila);
+  --color-mint: var(--nacar-mint);
+  --color-coral: var(--nacar-coral);
+  --color-ink: var(--nacar-ink);
+  --color-ink-soft: var(--nacar-ink-soft);
+
+  --font-serif: var(--font-serif-nacare);
+  --font-sans: var(--font-sans-nacare);
+
+  --radius-nacare: 1.25rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans, system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Titulares con la elegancia serif de la marca */
+.font-display {
+  font-family: var(--font-serif, Georgia, serif);
+  letter-spacing: -0.01em;
+}
+
+/* Textura sutil de fondo tipo papel arena */
+.bg-sand-texture {
+  background-color: var(--nacar-shell);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    rgba(201, 168, 106, 0.06) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
