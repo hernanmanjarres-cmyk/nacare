@@ -64,8 +64,9 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/asistente",
-    voteUrl: "", // 👈 pega aquí el link a tu comentario del Reto 1
-    published: false,
+    voteUrl:
+      "https://platzi.com/discusiones/vibecoders-league-1782929927/5675391-dejenme-contarles-por-que-este-proyecto-me-importa-tanto-se-llama-nacare-y-es-el-emprendimiento-de-joyeria-artesanal-de-una-amiga-y-su-socia-en-santa-marta-colombia-pero-detras-de-estas-piezas-hechas-a-mano-hay-una-historia-que-me-marco-una-de-ellas-siend/",
+    published: true,
   },
   {
     id: "catalogo",
@@ -90,8 +91,8 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/",
-    voteUrl: "", // 👈 pega aquí el link a tu comentario del Reto 2
-    published: false,
+    voteUrl: "https://platzi.com/comentario/5675393/",
+    published: true,
   },
   {
     id: "quiz",
@@ -115,8 +116,8 @@ export const challenges: Challenge[] = [
       { name: "Curso de Git y GitHub", url: "https://platzi.com/cursos/git-github/" },
     ],
     demoPath: "/quiz",
-    voteUrl: "", // 👈 pega aquí el link a tu comentario del Reto 3
-    published: false,
+    voteUrl: "https://platzi.com/comentario/5675394/",
+    published: true,
   },
 ];
 
