@@ -60,7 +60,7 @@ y el formulario captura a quien todavía no está listo para comprar.
 
 ## 🔗 Entregables del reto
 
-- **Link público:** _(pega aquí la URL de Vercel cuando despliegues)_
+- **Link público:** <https://nacare-rho.vercel.app>
 - **Qué lo hace único:** es un catálogo de un negocio real que resuelve un dolor
   concreto (precios por DM sin respuesta), captura leads reales en Supabase, y se
   ve profesional en celular y computador.

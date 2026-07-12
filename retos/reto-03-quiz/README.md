@@ -56,7 +56,7 @@ en el campo `interest` — así sabes de dónde vino cada lead.
 
 ## 🔗 Entregables del reto
 
-- **Link público:** _(pega aquí la URL de Vercel cuando despliegues)_
+- **Link público:** <https://nacare-rho.vercel.app/quiz>
 - **Qué lo hace único:** en vez de un "suscríbete a nuestro newsletter", la
   persona hace un quiz divertido que le recomienda una joya real según su
   personalidad. Da valor y entretenimiento primero; el correo se deja porque

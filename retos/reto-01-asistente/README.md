@@ -54,7 +54,7 @@ El modelo por defecto es `google/gemini-2.0-flash-001` (bueno y económico).
 
 ## 🔗 Entregables del reto
 
-- **Link público:** _(pega aquí la URL de Vercel cuando despliegues)_
+- **Link público:** <https://nacare-rho.vercel.app/asistente>
 - **Qué lo hace único:** conoce un negocio real (joyería artesanal de Santa Marta),
   habla con su tono auténtico, y respeta la regla de oro de no inventar —
   redirige a WhatsApp, que es el canal de venta real de la marca.

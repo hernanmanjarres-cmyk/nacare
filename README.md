@@ -8,6 +8,8 @@ Este repositorio es el **macro-proyecto** donde se integran los retos del
 **concurso de vibe coding de Platzi**. Cada reto es un módulo real de la
 plataforma de Nacaré, no un ejercicio suelto.
 
+### 🌐 **Demo en vivo: [nacare-rho.vercel.app](https://nacare-rho.vercel.app)**
+
 ---
 
 ## ✨ ¿Qué incluye?
