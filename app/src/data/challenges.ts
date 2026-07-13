@@ -140,3 +140,10 @@ export const challenges: Challenge[] = [
 /** Link general del concurso, por si alguien quiere ver la competencia. */
 export const CONTEST_URL =
   "https://platzi.com/cursos/vibecoders-league-1782929927/";
+
+/**
+ * Link de login/registro de Platzi. CRÍTICO: si la persona no inicia sesión
+ * antes de votar, Platzi muestra el like pero NO lo cuenta. El "Paso 1" de la
+ * página /vota manda aquí primero.
+ */
+export const PLATZI_LOGIN_URL = "https://platzi.com/login/";

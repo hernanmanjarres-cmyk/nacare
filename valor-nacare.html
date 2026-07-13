@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>¿Cuánto vale la web de Nacaré hoy?</title>
+<style>
+  :root {
+    --sand: #efe6da; --shell: #fbf7f0; --cream: #f5efe4;
+    --ink: #3a322a; --ink-soft: #6b6155; --ink-faint: #9a8f80;
+    --gold: #a8843f; --gold-soft: #c9a86a;
+    --sea: #2e8b8b; --sea-deep: #1f6b6b;
+    --coral: #c0603a; --ember: #d94f2a;
+    --line: rgba(168, 132, 63, 0.18);
+    --line-strong: rgba(168, 132, 63, 0.32);
+    --shadow: 0 1px 3px rgba(58, 50, 42, 0.06), 0 10px 30px rgba(58, 50, 42, 0.07);
+    --recommended-bg: #fbf7f0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sand: #191612; --shell: #241f19; --cream: #2c2720;
+      --ink: #f2ebe0; --ink-soft: #b3a897; --ink-faint: #7d7365;
+      --gold: #d4b06a; --gold-soft: #c9a86a;
+      --sea: #4bb5b5; --sea-deep: #6fd0d0; --coral: #e08a5f; --ember: #f0713f;
+      --line: rgba(212, 176, 106, 0.16); --line-strong: rgba(212, 176, 106, 0.3);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 10px 30px rgba(0, 0, 0, 0.32);
+      --recommended-bg: #2b271f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --sand: #191612; --shell: #241f19; --cream: #2c2720;
+    --ink: #f2ebe0; --ink-soft: #b3a897; --ink-faint: #7d7365;
+    --gold: #d4b06a; --gold-soft: #c9a86a;
+    --sea: #4bb5b5; --sea-deep: #6fd0d0; --coral: #e08a5f; --ember: #f0713f;
+    --line: rgba(212, 176, 106, 0.16); --line-strong: rgba(212, 176, 106, 0.3);
+    --shadow: 0 1px 3px rgba(0,0,0,0.35), 0 10px 30px rgba(0,0,0,0.32);
+    --recommended-bg: #2b271f;
+  }
+  :root[data-theme="light"] {
+    --sand: #efe6da; --shell: #fbf7f0; --cream: #f5efe4;
+    --ink: #3a322a; --ink-soft: #6b6155; --ink-faint: #9a8f80;
+    --gold: #a8843f; --gold-soft: #c9a86a;
+    --sea: #2e8b8b; --sea-deep: #1f6b6b; --coral: #c0603a; --ember: #d94f2a;
+    --line: rgba(168, 132, 63, 0.18); --line-strong: rgba(168, 132, 63, 0.32);
+    --shadow: 0 1px 3px rgba(58,50,42,0.06), 0 10px 30px rgba(58,50,42,0.07);
+    --recommended-bg: #fbf7f0;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--sand); color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased; line-height: 1.55;
+  }
+  .serif { font-family: Georgia, "Times New Roman", serif; }
+  .mono { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 40px 20px 72px; }
+
+  /* ---- Header ---- */
+  .eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gold); font-weight: 700; margin: 0 0 12px; }
+  h1 { font-family: Georgia, serif; font-size: clamp(2rem, 5.4vw, 3rem); font-weight: 600; line-height: 1.06; margin: 0 0 14px; letter-spacing: -0.01em; text-wrap: balance; }
+  .lede { color: var(--ink-soft); font-size: 1.05rem; margin: 0; max-width: 60ch; }
+  .lede b { color: var(--ink); }
+
+  /* ---- What's built ---- */
+  .built { margin: 34px 0 12px; }
+  .built-title { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-faint); font-weight: 700; margin: 0 0 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 9px; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; background: var(--shell); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-size: 0.86rem; color: var(--ink); box-shadow: var(--shadow); }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sea); flex-shrink: 0; }
+
+  /* ---- Section head ---- */
+  h2.section { font-family: Georgia, serif; font-size: 1.35rem; margin: 48px 0 8px; font-weight: 600; }
+  .section-hint { color: var(--ink-soft); font-size: 0.94rem; margin: 0 0 22px; max-width: 62ch; }
+
+  /* ---- Comparison table ---- */
+  .table-scroll { overflow-x: auto; border-radius: 20px; box-shadow: var(--shadow); }
+  table.compare { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--shell); min-width: 600px; }
+  table.compare th, table.compare td { padding: 15px 18px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  table.compare thead th { position: relative; background: var(--cream); font-family: Georgia, serif; font-size: 1.02rem; font-weight: 600; border-bottom: 1px solid var(--line-strong); }
+  table.compare thead th:first-child { border-top-left-radius: 20px; }
+  table.compare thead th:last-child { border-top-right-radius: 20px; }
+  table.compare th.rowlabel, table.compare td.rowlabel { font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.9rem; color: var(--ink-soft); font-weight: 500; }
+  table.compare td { font-size: 0.92rem; }
+  table.compare tbody tr:last-child td { border-bottom: none; }
+
+  /* money numbers */
+  .num { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+  .num.big { font-size: 1.12rem; }
+  .cop { display: block; font-size: 0.76rem; color: var(--ink-faint); font-weight: 500; margin-top: 1px; }
+  .sub { color: var(--ink-soft); font-size: 0.82rem; }
+
+  /* recommended column highlight */
+  .col-rec { background: var(--recommended-bg); box-shadow: inset 3px 0 0 var(--sea), inset -3px 0 0 var(--sea); }
+  thead th.col-rec { box-shadow: inset 3px 0 0 var(--sea), inset -3px 0 0 var(--sea); }
+  .rec-badge { display: inline-block; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; color: #fff; background: var(--sea); padding: 3px 9px; border-radius: 999px; margin-top: 6px; }
+  .col-head-sub { display: block; font-family: ui-sans-serif, system-ui, sans-serif; font-size: 0.74rem; font-weight: 500; color: var(--ink-soft); margin-top: 3px; letter-spacing: 0; text-transform: none; }
+
+  /* total row */
+  tr.total td { border-top: 1px solid var(--line-strong); background: var(--cream); }
+  tr.total td.rowlabel { font-family: Georgia, serif; font-weight: 600; color: var(--ink); font-size: 1rem; }
+  tr.total .num.big { font-size: 1.3rem; color: var(--coral); }
+  tr.total .col-rec .num.big { color: var(--sea-deep); }
+  tr.total .col-rec { border-bottom-left-radius: 0; }
+
+  .recurring td { font-size: 0.84rem; color: var(--ink-soft); }
+  .recurring .num { color: var(--ink); }
+  .yes { color: var(--sea); font-weight: 600; }
+  .no { color: var(--ink-faint); }
+
+  /* ---- Verdict card ---- */
+  .verdict { background: linear-gradient(135deg, var(--sea-deep), var(--sea)); color: #fff; border-radius: 22px; padding: 30px 28px; margin: 34px 0 0; box-shadow: var(--shadow); }
+  .verdict .k { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.82; margin: 0 0 12px; font-weight: 700; }
+  .verdict .headline { font-family: Georgia, serif; font-size: clamp(1.5rem, 4.5vw, 2.1rem); font-weight: 600; line-height: 1.2; margin: 0 0 6px; }
+  .verdict .headline .amt { border-bottom: 3px solid rgba(255,255,255,0.45); white-space: nowrap; }
+  .verdict .cop-big { font-size: 1.05rem; opacity: 0.9; margin: 0 0 16px; }
+  .verdict p { margin: 0; font-size: 0.98rem; opacity: 0.95; max-width: 64ch; line-height: 1.6; }
+  .verdict p + p { margin-top: 12px; }
+
+  /* ---- Not-yet card ---- */
+  .notyet { background: var(--shell); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 16px; padding: 22px 24px; margin: 22px 0 0; box-shadow: var(--shadow); }
+  .notyet h3 { font-family: Georgia, serif; font-size: 1.12rem; margin: 0 0 8px; font-weight: 600; }
+  .notyet p { margin: 0 0 12px; color: var(--ink-soft); font-size: 0.94rem; }
+  .notyet ul { margin: 0; padding-left: 20px; color: var(--ink-soft); font-size: 0.92rem; }
+  .notyet li { margin-bottom: 5px; }
+  .notyet li b { color: var(--ink); }
+
+  .foot { text-align: center; color: var(--ink-faint); font-size: 0.82rem; margin-top: 40px; line-height: 1.6; }
+  .foot b { color: var(--gold); }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 28px 16px 56px; }
+    table.compare th, table.compare td { padding: 12px 13px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Nacaré · Valor de mercado 🐚</p>
+  <h1>Lo que ya tienes hoy, ¿cuánto habría costado?</h1>
+  <p class="lede">Esta es la web de Nacaré tal como está <b>hoy, 12 de julio</b> — antes de que crezca de aquí al 19. Aquí ves lo que un tercero te habría cobrado por construir exactamente esto mismo, comparado en tres escenarios reales del mercado.</p>
+
+  <div class="built">
+    <p class="built-title">Lo que ya está construido y funcionando</p>
+    <div class="chips">
+      <span class="chip"><span class="dot"></span>Catálogo con 21 piezas reales por colección</span>
+      <span class="chip"><span class="dot"></span>Foto en grande (lightbox) al hacer clic</span>
+      <span class="chip"><span class="dot"></span>Asistente con IA que responde por ti</span>
+      <span class="chip"><span class="dot"></span>Quiz que recomienda piezas</span>
+      <span class="chip"><span class="dot"></span>Captura de clientes (leads) + base de datos</span>
+      <span class="chip"><span class="dot"></span>Cada pieza abre WhatsApp con mensaje listo</span>
+      <span class="chip"><span class="dot"></span>Identidad de marca + logo + video de olas</span>
+      <span class="chip"><span class="dot"></span>Publicada en internet, se ve bien en el celular</span>
+    </div>
+  </div>
+
+  <h2 class="section">Los tres escenarios, comparados</h2>
+  <p class="section-hint">Mismo alcance, tres formas de contratarlo. Precios de referencia del mercado 2026, en dólares (USD) con su equivalente aproximado en pesos (COP a ~4.000).</p>
+
+  <div class="table-scroll">
+    <table class="compare">
+      <thead>
+        <tr>
+          <th class="rowlabel">Lo que ya está hecho</th>
+          <th class="col-rec">
+            Freelancer LATAM
+            <span class="col-head-sub">Un dev independiente</span>
+            <span class="rec-badge">Referencia más justa</span>
+          </th>
+          <th>
+            Agencia digital
+            <span class="col-head-sub">Equipo formal (diseño + dev + PM)</span>
+          </th>
+          <th>
+            No-code
+            <span class="col-head-sub">Shopify / Wix + apps</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rowlabel">Catálogo + colecciones</td>
+          <td class="col-rec"><span class="num mono">$350</span></td>
+          <td><span class="num mono">$1.200</span></td>
+          <td><span class="num mono">$300</span> <span class="sub">setup tema</span></td>
+        </tr>
+        <tr>
+          <td class="rowlabel">Diseño de marca + hero video</td>
+          <td class="col-rec"><span class="num mono">$250</span></td>
+          <td><span class="num mono">$1.500</span></td>
+          <td><span class="no">plantilla genérica</span></td>
+        </tr>
+        <tr>
+          <td class="rowlabel">Asistente con IA (chatbot)</td>
+          <td class="col-rec"><span class="num mono">$300</span></td>
+          <td><span class="num mono">$1.000</span></td>
+          <td><span class="num mono">$25</span><span class="cop">/mes app externa</span></td>
+        </tr>
+        <tr>
+          <td class="rowlabel">Quiz recomendador de piezas</td>
+          <td class="col-rec"><span class="num mono">$200</span></td>
+          <td><span class="num mono">$600</span></td>
+          <td><span class="num mono">$15</span><span class="cop">/mes app externa</span></td>
+        </tr>
+        <tr>
+          <td class="rowlabel">Captura de clientes + base de datos</td>
+          <td class="col-rec"><span class="num mono">$200</span></td>
+          <td><span class="num mono">$700</span></td>
+          <td><span class="num mono">$20</span><span class="cop">/mes app externa</span></td>
+        </tr>
+        <tr>
+          <td class="rowlabel">Publicación + responsive + ajustes</td>
+          <td class="col-rec"><span class="num mono">$150</span></td>
+          <td><span class="num mono">$800</span> <span class="sub">QA + PM</span></td>
+          <td><span class="num mono">$39</span><span class="cop">/mes plan base</span></td>
+        </tr>
+        <tr class="total">
+          <td class="rowlabel">Costo de construir esto (pago único)</td>
+          <td class="col-rec"><span class="num big mono">$1.450</span><span class="cop">≈ COP 5.800.000</span></td>
+          <td><span class="num big mono">$5.800</span><span class="cop">≈ COP 23.200.000</span></td>
+          <td><span class="num big mono">$300</span><span class="cop">≈ COP 1.200.000</span></td>
+        </tr>
+        <tr class="recurring">
+          <td class="rowlabel">Costo que sigue corriendo cada mes</td>
+          <td class="col-rec"><span class="num mono">$0</span> <span class="sub">(hosting gratis)</span></td>
+          <td><span class="num mono">$0–150</span><span class="sub"> mantenimiento</span></td>
+          <td><span class="num mono">~$100</span><span class="cop">/mes para siempre</span></td>
+        </tr>
+        <tr class="recurring">
+          <td class="rowlabel">¿El código es tuyo?</td>
+          <td class="col-rec"><span class="yes">Sí, es tuyo</span></td>
+          <td><span class="yes">Sí, es tuyo</span></td>
+          <td><span class="no">No — rentado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="verdict">
+    <p class="k">La respuesta corta</p>
+    <p class="headline">Contratar esto hoy te habría costado <span class="amt">unos USD 1.450</span></p>
+    <p class="cop-big mono">≈ COP 5.800.000 · pago único, y el código queda siendo tuyo.</p>
+    <p>Ese es el precio de un <b>freelancer en Colombia/LATAM</b> — la referencia más honesta para tu caso. Una agencia formal cobraría <b>3 a 4 veces más</b> (~USD 5.800) por el mismo alcance, porque pagas también diseñador, project manager y overhead de oficina.</p>
+    <p>La opción no-code (Shopify/Wix) arranca barata, pero <b>nunca deja de cobrarte</b> ~USD 100 al mes, no lleva IA propia, y el día que dejas de pagar, pierdes todo. Aquí el hosting es gratis y la web es tuya de verdad.</p>
+  </div>
+
+  <div class="notyet">
+    <h3>Y ojo: esto es solo lo de hoy</h3>
+    <p>El número de arriba es por la <b>versión actual</b>. De aquí al 19 de julio la página se vuelve mucho más potente, y eso es valor adicional que <b>todavía no está contado</b> en estos $1.450:</p>
+    <ul>
+      <li><b>Precios y stock activables</b> — la base de datos ya los guarda; falta encenderlos.</li>
+      <li><b>Panel de administración</b> — para que subas y edites piezas tú misma, sin depender de nadie.</li>
+      <li><b>Más retos del concurso</b> — cada uno suma una capacidad nueva a la plataforma.</li>
+    </ul>
+  </div>
+
+  <p class="foot">
+    Cifras de referencia de mercado 2026, no una factura. Base técnica real: <b>~2.940 líneas de código</b> en 8 funcionalidades.<br>
+    Hecho con cariño para <b>Nacaré.Sm</b> · Santa Marta 🇨🇴
+  </p>
+
+</div>
+</body>
+</html>

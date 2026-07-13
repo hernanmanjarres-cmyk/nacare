@@ -5,6 +5,7 @@ import {
   CONTEST_URL,
   META_RETOS,
   FECHA_CORTE,
+  PLATZI_LOGIN_URL,
 } from "@/data/challenges";
 import { ButtonLink } from "@/components/ui/button";
 import { ShellMark } from "@/components/brand/logo";
@@ -58,24 +59,90 @@ export default function VotaPage() {
       </section>
 
       <div className="mx-auto max-w-2xl px-4 pb-16 sm:px-6">
-      {/* Cómo votar */}
-      <div className="rounded-[var(--radius-nacare)] border border-gold/20 bg-shell p-5 text-sm text-ink-soft">
-        <p className="font-medium text-ink">¿Cómo votar? Es gratis y rápido:</p>
-        <ol className="mt-2 list-inside list-decimal space-y-1">
-          <li>
-            Crea una cuenta gratuita en Platzi con tu correo (no necesitas
-            suscripción para votar).
+      {/* Cómo votar — flujo de 3 pasos, con el login como paso obligatorio */}
+      <div className="rounded-[var(--radius-nacare)] border border-gold/20 bg-shell p-6">
+        <h2 className="font-display text-xl font-semibold text-ink">
+          Votar es gratis y toma 1 minuto 🐚
+        </h2>
+
+        {/* Aviso crítico */}
+        <div className="mt-4 flex gap-3 rounded-2xl border border-coral/30 bg-coral/10 p-4">
+          <span className="text-xl">⚠️</span>
+          <p className="text-sm text-ink">
+            <strong>Importante:</strong> tu voto solo cuenta si{" "}
+            <strong>ya iniciaste sesión en Platzi</strong>. Si le das like sin
+            estar registrado, se ve como que funcionó… pero{" "}
+            <strong className="text-coral">el voto NO se registra</strong>. Por
+            eso el Paso 1 es clave.
+          </p>
+        </div>
+
+        {/* Pasos numerados */}
+        <ol className="mt-5 space-y-4">
+          <li className="flex gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-deep text-sm font-semibold text-shell">
+              1
+            </span>
+            <div className="flex-1">
+              <p className="font-medium text-ink">
+                Crea tu cuenta o inicia sesión en Platzi
+              </p>
+              <p className="mt-0.5 text-sm text-ink-soft">
+                Es gratis con tu correo — no necesitas suscripción para votar.
+              </p>
+              <a
+                href={PLATZI_LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-flex items-center gap-2 rounded-full bg-gold-deep px-5 py-2.5 text-sm font-medium text-shell transition-colors hover:bg-gold"
+              >
+                Entrar a Platzi primero →
+              </a>
+            </div>
           </li>
-          <li>Abre el proyecto con el botón &ldquo;Votar&rdquo; y dale like ❤️ a mi comentario.</li>
-          <li>¡Comparte con quien creas que le encantará Nacaré!</li>
+
+          <li className="flex gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-deep text-sm font-semibold text-shell">
+              2
+            </span>
+            <div className="flex-1">
+              <p className="font-medium text-ink">
+                Vuelve aquí y vota mis 3 proyectos
+              </p>
+              <p className="mt-0.5 text-sm text-ink-soft">
+                Ya con la sesión abierta, dale al botón{" "}
+                <span className="font-medium text-clay">❤️ Votar</span> de cada
+                reto y deja tu like en el comentario.
+              </p>
+            </div>
+          </li>
+
+          <li className="flex gap-3">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-deep text-sm font-semibold text-shell">
+              3
+            </span>
+            <div className="flex-1">
+              <p className="font-medium text-ink">
+                Comparte con quien ame lo hecho a mano
+              </p>
+              <p className="mt-0.5 text-sm text-ink-soft">
+                Cada persona que vote nos acerca a la meta. 🤍
+              </p>
+            </div>
+          </li>
         </ol>
       </div>
 
       {/* Tarjetas de retos */}
-      <div className="mt-8 space-y-4">
-        {challenges.map((c) => (
-          <ChallengeCard key={c.id} challenge={c} />
-        ))}
+      <div className="mt-8">
+        <p className="mb-3 text-center text-sm text-ink-soft">
+          ¿Ya iniciaste sesión? 👆 Ahora sí, vota cada uno:
+        </p>
+        <div className="space-y-4">
+          {challenges.map((c) => (
+            <ChallengeCard key={c.id} challenge={c} />
+          ))}
+        </div>
       </div>
 
       {/* Cierre */}
@@ -191,6 +258,12 @@ function ChallengeCard({
               {"</>"} Ver código
             </ButtonLink>
           </div>
+
+          {canVote && (
+            <p className="mt-2 text-xs text-ink-soft/70">
+              💡 Recuerda: inicia sesión en Platzi antes, o el like no cuenta.
+            </p>
+          )}
         </div>
       </div>
     </article>
