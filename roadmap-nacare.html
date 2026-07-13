@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan de Guerra · 1000 likes · Nacaré en Vibe Coders League</title>
+<style>
+  :root {
+    --sand: #efe6da; --shell: #fbf7f0; --cream: #f5efe4;
+    --ink: #3a322a; --ink-soft: #6b6155;
+    --gold: #a8843f; --gold-soft: #c9a86a;
+    --sea: #2e8b8b; --sea-deep: #1f6b6b;
+    --coral: #c0603a; --ember: #d94f2a;
+    --line: rgba(168, 132, 63, 0.18);
+    --shadow: 0 1px 3px rgba(58, 50, 42, 0.06), 0 8px 24px rgba(58, 50, 42, 0.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --sand: #1c1915; --shell: #26221c; --cream: #2c2720;
+      --ink: #f2ebe0; --ink-soft: #b3a897; --gold: #d4b06a; --gold-soft: #c9a86a;
+      --sea: #4bb5b5; --sea-deep: #6fd0d0; --coral: #e08a5f; --ember: #f0713f;
+      --line: rgba(212, 176, 106, 0.16);
+      --shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.28);
+    }
+  }
+  :root[data-theme="dark"] {
+    --sand: #1c1915; --shell: #26221c; --cream: #2c2720;
+    --ink: #f2ebe0; --ink-soft: #b3a897; --gold: #d4b06a; --gold-soft: #c9a86a;
+    --sea: #4bb5b5; --sea-deep: #6fd0d0; --coral: #e08a5f; --ember: #f0713f;
+    --line: rgba(212, 176, 106, 0.16);
+    --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.28);
+  }
+  :root[data-theme="light"] {
+    --sand: #efe6da; --shell: #fbf7f0; --cream: #f5efe4;
+    --ink: #3a322a; --ink-soft: #6b6155; --gold: #a8843f; --gold-soft: #c9a86a;
+    --sea: #2e8b8b; --sea-deep: #1f6b6b; --coral: #c0603a; --ember: #d94f2a;
+    --line: rgba(168, 132, 63, 0.18);
+    --shadow: 0 1px 3px rgba(58,50,42,0.06), 0 8px 24px rgba(58,50,42,0.06);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--sand); color: var(--ink);
+    font-family: "Fraunces", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased; line-height: 1.5;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 32px 20px 64px; }
+  .display { font-family: Georgia, "Times New Roman", serif; letter-spacing: -0.01em; }
+  .mono { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+  .eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.22em; color: var(--gold); font-weight: 600; margin: 0 0 10px; }
+  h1.display { font-size: clamp(2rem, 5.5vw, 3.1rem); font-weight: 600; line-height: 1.05; margin: 0 0 10px; text-wrap: balance; }
+  .sub { color: var(--ink-soft); font-size: 1.02rem; margin: 0 0 28px; max-width: 56ch; }
+  .sub b { color: var(--ink); }
+
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 26px; }
+  .stat { background: var(--shell); border: 1px solid var(--line); border-radius: 16px; padding: 16px 10px; box-shadow: var(--shadow); text-align: center; }
+  .stat .num { font-size: clamp(1.5rem, 5vw, 2.3rem); font-weight: 700; line-height: 1; }
+  .stat .num.sea { color: var(--sea); } .stat .num.coral { color: var(--coral); } .stat .num.gold { color: var(--gold); } .stat .num.ember { color: var(--ember); }
+  .stat .lbl { font-size: 0.64rem; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 6px; }
+
+  .formula {
+    background: linear-gradient(135deg, var(--sea-deep), var(--sea));
+    color: #fff; border-radius: 20px; padding: 24px; margin-bottom: 26px;
+    box-shadow: var(--shadow); text-align: center;
+  }
+  .formula .lead { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.16em; opacity: 0.85; margin: 0 0 10px; }
+  .formula .eq { font-family: Georgia, serif; font-size: clamp(1.2rem, 4.2vw, 1.75rem); font-weight: 600; line-height: 1.3; margin: 0; }
+  .formula .eq b { border-bottom: 2px solid rgba(255,255,255,0.5); }
+  .formula .note { font-size: 0.86rem; opacity: 0.92; margin: 14px 0 0; }
+
+  .panel { background: var(--shell); border: 1px solid var(--line); border-radius: 20px; padding: 22px; box-shadow: var(--shadow); margin-bottom: 22px; }
+  .panel h2 { font-family: Georgia, serif; font-size: 1.18rem; margin: 0 0 4px; font-weight: 600; }
+  .panel .hint { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 18px; }
+
+  .bar-track { height: 24px; background: var(--cream); border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+  .bar-fill { height: 100%; width: 0.3%; background: linear-gradient(90deg, var(--sea-deep), var(--sea)); border-radius: 999px; transition: width 1.2s cubic-bezier(0.22,1,0.36,1); }
+  .bar-legend { display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.82rem; color: var(--ink-soft); }
+  .bar-legend b { color: var(--ink); }
+
+  h3.section { font-family: Georgia, serif; font-size: 1.1rem; margin: 34px 0 16px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  h3.section::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  h3.section .pill { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 999px; font-weight: 700; font-family: system-ui, sans-serif; }
+  .pill.seed { background: var(--sea); color: #fff; }
+  .pill.hot { background: var(--ember); color: #fff; }
+
+  /* Day timeline */
+  .day { display: grid; grid-template-columns: 56px 1fr auto; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .day:last-child { border-bottom: none; }
+  .day-date { text-align: center; }
+  .day-date .d { font-size: 1.3rem; font-weight: 700; line-height: 1; }
+  .day-date .m { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); }
+  .day-body .goal { font-weight: 600; font-size: 0.98rem; }
+  .day-body .goal .plus { color: var(--sea); }
+  .day-body .detail { font-size: 0.8rem; color: var(--ink-soft); margin-top: 2px; }
+  .day-body .posts { display: inline-block; font-size: 0.66rem; font-family: system-ui, sans-serif; background: var(--cream); border: 1px solid var(--line); color: var(--ink-soft); padding: 1px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle; }
+  .day-cum { text-align: right; font-size: 0.72rem; color: var(--ink-soft); white-space: nowrap; }
+  .day-cum b { display: block; font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+
+  /* hot days styling */
+  .day.hot { position: relative; }
+  .day.hot .goal .plus { color: var(--ember); }
+  .day.hot .day-date .d { color: var(--ember); }
+  .day.hot .day-cum b { color: var(--ember); }
+  .day.today { background: linear-gradient(90deg, rgba(46,139,139,0.09), transparent); border-radius: 12px; padding-left: 10px; margin-left: -10px; }
+
+  .hotband {
+    background: linear-gradient(135deg, var(--ember), var(--coral));
+    color: #fff; border-radius: 16px; padding: 4px 4px 4px; margin: 14px -4px;
+  }
+  .hotband .day { border-bottom: 1px solid rgba(255,255,255,0.15); padding-left: 14px; padding-right: 14px; }
+  .hotband .day:last-child { border-bottom: none; }
+  .hotband .day-date .d, .hotband .day-date .m { color: #fff; }
+  .hotband .day-body .goal, .hotband .day-body .goal .plus { color: #fff; }
+  .hotband .day-body .detail { color: rgba(255,255,255,0.85); }
+  .hotband .day-body .posts { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.25); color: #fff; }
+  .hotband .day-cum { color: rgba(255,255,255,0.75); }
+  .hotband .day-cum b { color: #fff; }
+  .hotband-title { font-family: system-ui, sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; color: #fff; padding: 12px 14px 4px; display: flex; align-items: center; gap: 8px; }
+
+  .tag { display: inline-block; font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.07em; padding: 2px 8px; border-radius: 999px; font-weight: 700; margin-left: 6px; font-family: system-ui, sans-serif; }
+  .tag.cut { background: #fff; color: var(--ember); }
+
+  .playbook { display: grid; gap: 10px; }
+  .play { display: flex; gap: 13px; align-items: flex-start; background: var(--cream); border: 1px solid var(--line); border-radius: 14px; padding: 15px 17px; }
+  .play.fire { border-color: var(--ember); background: color-mix(in srgb, var(--ember) 6%, var(--cream)); }
+  .play .ic { font-size: 1.35rem; line-height: 1.2; flex-shrink: 0; }
+  .play .t { font-weight: 600; font-size: 0.96rem; }
+  .play .x { font-size: 0.85rem; color: var(--ink-soft); margin-top: 3px; }
+  .play .t b { color: var(--sea); }
+  .play.fire .t b { color: var(--ember); }
+
+  .foot { text-align: center; color: var(--ink-soft); font-size: 0.84rem; margin-top: 34px; line-height: 1.6; }
+  .foot b { color: var(--gold); }
+
+  @media (max-width: 500px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .day { grid-template-columns: 48px 1fr; }
+    .day-cum { grid-column: 2; text-align: left; margin-top: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="eyebrow">Vibe Coders League · Campaña Nacaré 🐚</p>
+  <h1 class="display">Rumbo a los 1000:<br>siembra y remate</h1>
+  <p class="sub">Solo tienes del <b>12 al 19 de julio</b>. Entregas <b>10 retos</b> (uno nuevo cada día), y cada persona vota todos. El plan: <b>siembra constante</b> hasta el 16, y <b>remate en llamas</b> el 17, 18 y 19 — justo cuando tienes más posts y cada votante vale más.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="num gold mono">1000</div><div class="lbl">Meta</div></div>
+    <div class="stat"><div class="num sea mono">100</div><div class="lbl">Votantes fieles</div></div>
+    <div class="stat"><div class="num ember mono">10</div><div class="lbl">Retos a entregar</div></div>
+    <div class="stat"><div class="num coral mono">19/7</div><div class="lbl">Día del corte</div></div>
+  </div>
+
+  <div class="formula">
+    <p class="lead">La fórmula que lo hace posible</p>
+    <p class="eq"><b>100 personas</b> &nbsp;×&nbsp; <b>10 retos</b> &nbsp;=&nbsp; 1000 likes</p>
+    <p class="note">No necesitas 1000 personas. Necesitas 100 leales que voten cada una de tus 10 entregas. Reclutar temprano = votan más posts.</p>
+  </div>
+
+  <div class="panel">
+    <h2>Progreso hacia los 1000</h2>
+    <p class="hint">Actualiza según los likes reales sumados en todos tus posts.</p>
+    <div class="bar-track"><div class="bar-fill" id="fill"></div></div>
+    <div class="bar-legend">
+      <span>Hoy: <b class="mono">~3</b></span>
+      <span>Meta: <b class="mono">1000</b></span>
+    </div>
+  </div>
+
+  <h3 class="section"><span class="pill seed">Siembra</span> Construir la base · 12–16 jul</h3>
+  <div class="panel" style="padding-top: 6px; padding-bottom: 6px;">
+    <div class="day today">
+      <div class="day-date"><div class="d mono">12</div><div class="m">Dom</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+10</span> votantes <span class="posts">3 posts</span></div><div class="detail">Familia + amigas más cercanas · que voten tus 3 posts hoy</div></div>
+      <div class="day-cum">≈ likes<b class="mono">30</b></div>
+    </div>
+    <div class="day">
+      <div class="day-date"><div class="d mono">13</div><div class="m">Lun</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+10</span> · sube reto 4 <span class="posts">4 posts</span></div><div class="detail">Grupos de WhatsApp · avísale a los de ayer del reto nuevo</div></div>
+      <div class="day-cum">≈ likes<b class="mono">80</b></div>
+    </div>
+    <div class="day">
+      <div class="day-date"><div class="d mono">14</div><div class="m">Mar</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+9</span> · sube reto 5 <span class="posts">5 posts</span></div><div class="detail">Compañeros de trabajo/estudio · pide el favor directo</div></div>
+      <div class="day-cum">≈ likes<b class="mono">145</b></div>
+    </div>
+    <div class="day">
+      <div class="day-date"><div class="d mono">15</div><div class="m">Mié</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+9</span> · sube reto 6 <span class="posts">6 posts</span></div><div class="detail">Story en @nacare.sm · empieza a activar la comunidad</div></div>
+      <div class="day-cum">≈ likes<b class="mono">228</b></div>
+    </div>
+    <div class="day">
+      <div class="day-date"><div class="d mono">16</div><div class="m">Jue</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+9</span> · sube reto 7 <span class="posts">7 posts</span></div><div class="detail">Cierra la siembra con ~47 votantes · lista lista para el remate</div></div>
+      <div class="day-cum">≈ likes<b class="mono">329</b></div>
+    </div>
+  </div>
+
+  <div class="hotband">
+    <div class="hotband-title">🔥 Remate en llamas · el sprint que define el corte</div>
+    <div class="day hot">
+      <div class="day-date"><div class="d mono">17</div><div class="m">Vie</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+16</span> · sube reto 8 <span class="posts">8 posts</span></div><div class="detail">Video de tu amiga contando la historia · empuja fuerte en IG</div></div>
+      <div class="day-cum">≈ likes<b class="mono">504</b></div>
+    </div>
+    <div class="day hot">
+      <div class="day-date"><div class="d mono">18</div><div class="m">Sáb</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+18</span> · sube reto 9 <span class="posts">9 posts</span></div><div class="detail">Fin de semana = más tiempo · recuérdale a TODOS que voten todo</div></div>
+      <div class="day-cum">≈ likes<b class="mono">729</b></div>
+    </div>
+    <div class="day hot">
+      <div class="day-date"><div class="d mono">19</div><div class="m">Dom</div></div>
+      <div class="day-body"><div class="goal">Recluta <span class="plus">+19</span> · sube reto 10 <span class="posts">10 posts</span> <span class="tag cut">Corte</span></div><div class="detail">Último llamado · maratón de mensajes · cada like cuenta doble hoy</div></div>
+      <div class="day-cum">≈ likes<b class="mono">1000</b></div>
+    </div>
+  </div>
+
+  <h3 class="section">El playbook</h3>
+  <div class="playbook">
+    <div class="play"><span class="ic">🔗</span><div><div class="t">Un solo link: <b>tu página /vota</b></div><div class="x">Desde ahí votan todos tus retos sin buscarte. Tu arma principal en cada mensaje.</div></div></div>
+    <div class="play"><span class="ic">📌</span><div><div class="t">Cada reto nuevo = otra vuelta a tu lista</div><div class="x">Reclutar no es una vez. Cada día que subes un reto, avísale a TODOS tus votantes: "salió el nuevo, vótalo". Ahí está el multiplicador.</div></div></div>
+    <div class="play fire"><span class="ic">🎬</span><div><div class="t">Guarda tu mejor bala para el <b>17-19</b></div><div class="x">El video de tu amiga, el post más emotivo, el empujón grande en @nacare.sm — todo va en el remate, cuando tienes más posts y más urgencia.</div></div></div>
+    <div class="play fire"><span class="ic">⏰</span><div><div class="t">El <b>18 y 19</b> son sábado y domingo</div><div class="x">La gente tiene tiempo libre = mejor conversión. Concentra la maratón de mensajes ahí. Ese es el remate real.</div></div></div>
+    <div class="play"><span class="ic">💬</span><div><div class="t">Repite siempre: votar es <b>gratis</b></div><div class="x">Solo cuenta gratuita de Platzi con correo, sin suscripción. Es la objeción #1 — quítala de entrada.</div></div></div>
+    <div class="play"><span class="ic">📊</span><div><div class="t">Lista de quién ya votó qué</div><div class="x">Anota tus votantes fieles. Así en el remate sabes exactamente a quién recordarle y no repites.</div></div></div>
+  </div>
+
+  <p class="foot">
+    Meta grande, ventana corta. La clave es doble: <b>entrega los 10 retos</b> y <b>remata con todo el 17-18-19</b>.<br>
+    Aunque no llegues a 1000, cualquier cosa por encima de ~150 te mete al top 16 con holgura. 🚀
+  </p>
+</div>
+
+<script>
+  const fill = document.getElementById("fill");
+  const target = 0.3;
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce) { fill.style.transition = "none"; fill.style.width = target + "%"; }
+  else { requestAnimationFrame(() => { fill.style.width = target + "%"; }); }
+</script>
+</body>
+</html>

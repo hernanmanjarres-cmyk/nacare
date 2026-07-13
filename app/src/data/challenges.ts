@@ -9,6 +9,15 @@
  * Eso es todo — la página /vota se actualiza sola.
  */
 
+/**
+ * Meta total de retos del concurso (se libera uno nuevo por día hasta el 19 de
+ * julio). El contador de /vota muestra "X de META_RETOS completados".
+ */
+export const META_RETOS = 10;
+
+/** Fecha límite para conseguir votos / clasificar al top 16. */
+export const FECHA_CORTE = "19 de julio";
+
 export interface TechItem {
   name: string;
   /** Por qué se usó esta tecnología en este reto. */

@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { challenges, CONTEST_URL } from "@/data/challenges";
+import {
+  challenges,
+  CONTEST_URL,
+  META_RETOS,
+  FECHA_CORTE,
+} from "@/data/challenges";
 import { ButtonLink } from "@/components/ui/button";
 import { ShellMark } from "@/components/brand/logo";
 import { HeroVideo } from "@/components/brand/hero-video";
@@ -35,13 +40,19 @@ export default function VotaPage() {
               Vibe Coders League de Platzi
             </a>{" "}
             con proyectos que construí para <strong>Nacaré</strong>, una marca de
-            joyería artesanal hecha a mano en Santa Marta. Cada voto acerca este
-            emprendimiento a más personas.
+            joyería artesanal hecha a mano en Santa Marta.
+          </p>
+          <p className="mx-auto mt-3 max-w-lg text-ink-soft">
+            El reto va{" "}
+            <strong className="text-clay">hasta el {FECHA_CORTE}</strong>: cada
+            día subo un proyecto nuevo. <strong>Cada voto que consigas nos
+            ayuda a crecer</strong> y a llevar esta marca hecha a mano a más
+            personas. 🤍
           </p>
 
           <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/25 bg-cream/60 px-4 py-2 text-sm text-ink-soft">
             <span className="font-medium text-gold-deep">{publishedCount}</span>
-            de {challenges.length} retos publicados
+            de {META_RETOS} retos completados
           </div>
         </div>
       </section>
