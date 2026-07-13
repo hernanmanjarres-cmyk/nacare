@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import type { Product } from "@/data/products";
+import { type Product, mainImage } from "@/data/products";
 
 /** Mapea nombres de color en español a valores CSS para el placeholder. */
 const colorMap: Record<string, string> = {
@@ -69,7 +69,7 @@ export function ProductImage({ product }: { product: Product }) {
 
   return (
     <Image
-      src={product.image}
+      src={mainImage(product)}
       alt={product.name}
       fill
       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
