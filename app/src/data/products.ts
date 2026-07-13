@@ -1,7 +1,9 @@
 /**
  * Catálogo de productos de Nacaré.Sm — fuente de verdad compartida.
  *
- * Datos extraídos del Instagram real @nacare.sm (joyería artesanal, Santa Marta 🇨🇴).
+ * Fotos ORIGINALES de la marca (Google Drive), agrupadas por colección real:
+ * Bubblegum (cuentas grandes), Perla de Mar (finos/delicados) y Kids (infantil).
+ *
  * Modelo "ecommerce-ready": guarda price y stock desde el día 1 aunque la v1 los
  * mantenga por WhatsApp (como en su IG). Cuando se active precio/panel admin en un
  * reto futuro, no hay que reescribir el modelo.
@@ -13,212 +15,341 @@ export type ProductType = "collar" | "pulsera" | "anillo" | "aretes" | "set";
 
 export interface Product {
   id: string;
-  /** Nombre visible de la pieza */
   name: string;
-  /** Colección temática a la que pertenece */
   collection: string;
   type: ProductType;
-  /** Materiales y cuentas (nácar, perla, piedra, dorado…) */
   materials: string[];
-  /** Colores dominantes de la pieza */
   colors: string[];
-  /** Descripción de venta, con el tono cálido de la marca */
   description: string;
-  /**
-   * Precio en COP. `null` = "consultar por WhatsApp" (como hoy en IG).
-   * El campo existe para activar precios visibles en un reto futuro.
-   */
+  /** Precio en COP. `null` = "consultar por WhatsApp". */
   price: number | null;
-  /** ¿Disponible para entrega inmediata? */
   available: boolean;
-  /** ¿Se puede personalizar (color/dije a elección)? */
   customizable: boolean;
-  /** Ruta de la imagen en /public/products/ */
   image: string;
-  /** Palabras clave para el quiz y el buscador */
+  /** Palabras clave para el quiz y el buscador. */
   vibes: string[];
 }
 
 export const products: Product[] = [
+  // ─────────────────────────── BUBBLEGUM ───────────────────────────
   {
-    id: "collar-nacar-perla",
+    id: "bubblegum-marron-corazon",
+    name: "Collar Cacao con Corazón",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum", "corazón dorado"],
+    colors: ["marrón", "dorado"],
+    description:
+      "Cuentas grandes en tono cacao con un corazón dorado que roba miradas. Un statement cálido y elegante. 🤎",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/bubblegum-marron-corazon.jpg",
+    vibes: ["statement", "cálida", "elegante", "atrevida"],
+  },
+  {
+    id: "perla-grande",
+    name: "Collar Perla Bubblegum",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["perla grande"],
+    colors: ["blanco perla"],
+    description:
+      "Perlas grandes para las que aman lo clásico con un toque moderno. Atemporal y con carácter. 🤍",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/perla-grande.jpg",
+    vibes: ["clásica", "elegante", "sofisticada", "romántica"],
+  },
+  {
+    id: "perla-concha-nacar",
     name: "Collar Perla de Nácar",
     collection: "Perla de Mar",
     type: "collar",
     materials: ["perla", "concha de nácar"],
-    colors: ["blanco perla", "rojo", "nácar"],
+    colors: ["blanco perla", "nácar"],
     description:
-      "Un collar hecho a mano que nació de un sueño familiar. Perlas y concha de nácar con un acento en rojo para las que se atreven a brillar. 🤍",
+      "Perlas con un dije de concha de nácar, el alma de la marca. Elegancia con corazón costero. 🐚",
     price: null,
     available: true,
     customizable: false,
-    image: "/products/collar-nacar-perla.jpg",
-    vibes: ["elegante", "romántica", "clásica", "costera"],
+    image: "/products/perla-concha-nacar.jpg",
+    vibes: ["elegante", "costera", "romántica", "sofisticada"],
   },
   {
-    id: "set-pulseras-tierra",
-    name: "Set de Pulseras Tierra",
-    collection: "Favoritos",
-    type: "set",
-    materials: ["cuentas de piedra", "charm corazón"],
-    colors: ["verde oliva", "terracota", "crema"],
-    description:
-      "Tres pulseras para apilar en tonos tierra, con un pequeño corazón que lo dice todo. Combínalas a tu manera. 💫",
-    price: null,
-    available: true,
-    customizable: true,
-    image: "/products/set-pulseras-tierra.jpg",
-    vibes: ["boho", "natural", "terrenal", "relajada"],
-  },
-  {
-    id: "santa-marta-501",
-    name: "Colección Santa Marta 501",
-    collection: "Santa Marta 501 años",
-    type: "collar",
-    materials: ["cuentas variadas", "dijes dorados"],
-    colors: ["turquesa", "rosa", "naranja", "blanco", "dorado"],
-    description:
-      "Inspirada en el mar, la historia y la belleza de Santa Marta. Dijes de concha, ballena, palma y tortuga que puedes intercambiar a tu gusto. 🐚",
-    price: null,
-    available: true,
-    customizable: true,
-    image: "/products/santa-marta-501.jpg",
-    vibes: ["local", "orgullo costeño", "personalizable", "significativa"],
-  },
-  {
-    id: "collar-estrella-mar",
-    name: "Collar Estrella de Mar",
-    collection: "Fiestas del Mar",
-    type: "collar",
-    materials: ["cuentas grandes", "dije esmaltado"],
-    colors: ["rojo", "azul"],
-    description:
-      "Perlas rojas con una estrella de mar esmaltada. Para llevar el mar contigo a donde vayas. ✨",
-    price: null,
-    available: true,
-    customizable: false,
-    image: "/products/collar-estrella-mar.jpg",
-    vibes: ["playera", "vibrante", "veraniega", "alegre"],
-  },
-  {
-    id: "collar-goza-suspira",
-    name: "Collar Goza que Suspira",
-    collection: "Favoritos",
-    type: "collar",
-    materials: ["cuentas grandes", "corazón colgante"],
-    colors: ["marrón", "vino"],
-    description:
-      "Cuentas grandes y un corazón que suspira. Un básico con carácter para el día a día. ❤️",
-    price: null,
-    available: true,
-    customizable: false,
-    image: "/products/collar-goza-suspira.jpg",
-    vibes: ["cotidiana", "cálida", "atrevida", "statement"],
-  },
-  {
-    id: "collares-docentes",
-    name: "Collares Docentes",
-    collection: "Día del Docente",
-    type: "collar",
-    materials: ["cuentas", "dije corazón"],
-    colors: ["azul cielo", "café", "rosa", "vino"],
-    description:
-      "Colecciones 'Enseñanza con Amor' y 'Goza que Suspira': collares para regalar con cariño a quien enseña con el corazón. 🌸",
-    price: null,
-    available: true,
-    customizable: true,
-    image: "/products/collares-docentes.jpg",
-    vibes: ["regalo", "tierna", "detallista", "significativa"],
-  },
-  {
-    id: "bubblegum-bicolor",
-    name: "Collar Bubblegum Bicolor",
+    id: "bubblegum-menta-estrella",
+    name: "Collar Menta Estrella",
     collection: "Bubblegum",
     type: "collar",
-    materials: ["cuentas bubblegum", "corazón dorado"],
-    colors: ["rosa", "lila", "verde oliva"],
+    materials: ["cuentas bubblegum", "estrella dorada"],
+    colors: ["verde menta", "dorado"],
     description:
-      "La tendencia bubblegum en tonos pastel, con un corazón dorado. Entrega inmediata y personalizable a tus colores. 💕",
+      "Verde menta fresco con una estrella de mar dorada. Todo el veraneo en una pieza. 🌊",
     price: null,
     available: true,
     customizable: true,
-    image: "/products/bubblegum-bicolor.jpg",
-    vibes: ["divertida", "juvenil", "dulce", "trendy"],
+    image: "/products/bubblegum-menta-estrella.jpg",
+    vibes: ["playera", "veraniega", "marina", "alegre"],
   },
   {
-    id: "collar-colombia",
-    name: "Collar de Colombia",
-    collection: "Selección Colombia",
-    type: "collar",
-    materials: ["cuentas marfil", "acentos tricolor"],
-    colors: ["marfil", "amarillo", "azul", "rojo"],
-    description:
-      "Cuentas marfil con el tricolor de la selección. Para hinchas de corazón. ¡Se agotan rápido cada partido! 🇨🇴",
-    price: null,
-    available: false,
-    customizable: false,
-    image: "/products/collar-colombia.jpg",
-    vibes: ["patriótica", "festiva", "edición limitada", "vibrante"],
-  },
-  {
-    id: "bubblegum-multicolor",
-    name: "Collar Bubblegum Multicolor",
+    id: "bubblegum-oliva-sol",
+    name: "Collar Oliva Sol",
     collection: "Bubblegum",
     type: "collar",
-    materials: ["cuentas grandes personalizables"],
-    colors: ["azul", "morado", "rosa"],
+    materials: ["cuentas bubblegum", "sol dorado"],
+    colors: ["verde oliva", "dorado"],
     description:
-      "Diseña el tuyo: elige los colores que van con tu energía y lo armamos para ti. 💫",
+      "Tonos tierra en verde oliva con un sol dorado que ilumina cualquier look. Natural y con luz propia. ☀️",
     price: null,
     available: true,
     customizable: true,
-    image: "/products/bubblegum-multicolor.jpg",
-    vibes: ["personalizable", "creativa", "única", "expresiva"],
+    image: "/products/bubblegum-oliva-sol.jpg",
+    vibes: ["natural", "boho", "terrenal", "cálida"],
   },
   {
-    id: "fiestas-del-mar-set",
-    name: "Colección Fiestas del Mar",
+    id: "bubblegum-azul-rey",
+    name: "Collar Azul Rey",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum"],
+    colors: ["azul rey"],
+    description:
+      "Azul intenso y profundo, como el mar de Santa Marta al atardecer. Puro statement. 💙",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/bubblegum-azul-rey.jpg",
+    vibes: ["statement", "vibrante", "atrevida", "marina"],
+  },
+  {
+    id: "bubblegum-estrella-mar",
+    name: "Collar Fiesta del Mar",
     collection: "Fiestas del Mar",
     type: "collar",
-    materials: ["cuentas", "dijes esmaltados de mar"],
-    colors: ["verde", "azul marino", "dorado", "turquesa"],
+    materials: ["cuentas bubblegum", "estrella de mar esmaltada"],
+    colors: ["rojo", "verde menta", "turquesa"],
     description:
-      "Seis modelos con dijes de pulpo, estrella, caballito y langosta. Edición limitada por las fiestas del mar. 🌊",
+      "Rojo y menta con una estrella de mar esmaltada. Edición Fiestas del Mar, pura alegría costeña. ⭐",
     price: null,
     available: true,
     customizable: false,
-    image: "/products/fiestas-del-mar-set.jpg",
-    vibes: ["marina", "festiva", "coleccionable", "temática"],
+    image: "/products/bubblegum-estrella-mar.jpg",
+    vibes: ["festiva", "vibrante", "playera", "alegre"],
   },
   {
-    id: "perla-de-mar-fina",
-    name: "Colección Perla de Mar",
+    id: "bubblegum-bicolor-cielo",
+    name: "Collar Cielo y Sol",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum bicolor"],
+    colors: ["azul cielo", "amarillo"],
+    description:
+      "Bicolor en azul cielo y amarillo sol. Personalízalo con tus colores favoritos. 💫",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/bubblegum-bicolor-cielo.jpg",
+    vibes: ["divertida", "juvenil", "personalizable", "expresiva"],
+  },
+  {
+    id: "bubblegum-rosa-estrella",
+    name: "Collar Rosa Estrella",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum", "estrella rosa"],
+    colors: ["rosa"],
+    description:
+      "Rosa dulce con una estrella de mar a juego. Femenino, tierno y muy trendy. 🌸",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/bubblegum-rosa-estrella.jpg",
+    vibes: ["dulce", "romántica", "juvenil", "tierna"],
+  },
+  {
+    id: "bubblegum-lila",
+    name: "Collar Lila",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum"],
+    colors: ["lila", "morado"],
+    description:
+      "Lila suave que combina con todo. Delicado y soñador para el día a día. 💜",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/bubblegum-lila.jpg",
+    vibes: ["soñadora", "dulce", "cotidiana", "tierna"],
+  },
+  {
+    id: "bubblegum-arbol-vida",
+    name: "Collar Árbol de la Vida",
+    collection: "Bubblegum",
+    type: "collar",
+    materials: ["cuentas bubblegum crema", "árbol de la vida"],
+    colors: ["crema", "dorado"],
+    description:
+      "Cuentas color crema con el dije del árbol de la vida. Un símbolo de raíces y crecimiento. 🌳",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/bubblegum-arbol-vida.jpg",
+    vibes: ["significativa", "natural", "elegante", "regalo"],
+  },
+  {
+    id: "bubblegum-beige-medallon",
+    name: "Collar Doble Medallón Mar",
+    collection: "Fiestas del Mar",
+    type: "collar",
+    materials: ["cuentas bubblegum", "cadena", "medallón esmaltado"],
+    colors: ["beige", "dorado"],
+    description:
+      "Cuentas beige con cadena y medallón de mar esmaltado. Dos texturas, un solo encanto. 🐚",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/bubblegum-beige-medallon.jpg",
+    vibes: ["elegante", "marina", "sofisticada", "única"],
+  },
+
+  // ─────────────────────────── PERLA DE MAR (finos) ───────────────────────────
+  {
+    id: "fino-cola-ballena",
+    name: "Cadena Cola de Ballena",
     collection: "Perla de Mar",
     type: "collar",
-    materials: ["cadena dorada/plateada", "dijes", "jade"],
-    colors: ["dorado", "plateado", "verde jade"],
+    materials: ["cadena dorada", "dije cola de ballena"],
+    colors: ["dorado"],
     description:
-      "Nuestra línea más fina: cadena delicada con dijes de concha, ballena y ojo turco. Elegancia con alma costera. 🐚",
-    price: null,
-    available: true,
-    customizable: true,
-    image: "/products/perla-de-mar-fina.jpg",
-    vibes: ["minimalista", "elegante", "delicada", "sofisticada"],
-  },
-  {
-    id: "collar-enamorate",
-    name: "Collar Enamórate con Amor",
-    collection: "Favoritos",
-    type: "collar",
-    materials: ["cuentas grandes", "corazón colgante"],
-    colors: ["azul cielo", "rosa"],
-    description:
-      "Cuentas en azul cielo con un corazón rosa. Para regalar (o regalarte) un poco de amor. 💕",
+      "Cadena fina y delicada con un dije de cola de ballena. Minimalismo con alma de mar. 🐋",
     price: null,
     available: true,
     customizable: false,
-    image: "/products/collar-enamorate.jpg",
-    vibes: ["romántica", "tierna", "regalo", "soñadora"],
+    image: "/products/fino-cola-ballena.jpg",
+    vibes: ["minimalista", "delicada", "elegante", "sofisticada"],
+  },
+  {
+    id: "fino-estrella-mar",
+    name: "Collar Estrella Fina",
+    collection: "Perla de Mar",
+    type: "collar",
+    materials: ["cuentas pequeñas", "estrella de mar dorada"],
+    colors: ["azul", "dorado"],
+    description:
+      "Cuentas pequeñas en azul con una gran estrella de mar dorada. Fino pero con presencia. ⭐",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/fino-estrella-mar.jpg",
+    vibes: ["delicada", "marina", "elegante", "única"],
+  },
+  {
+    id: "fino-jade",
+    name: "Collar Jade de Mar",
+    collection: "Perla de Mar",
+    type: "collar",
+    materials: ["jade verde", "medallón"],
+    colors: ["verde jade", "dorado"],
+    description:
+      "Piedras de jade verde con un medallón central. Sofisticado, natural y lleno de calma. 🌿",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/fino-jade.jpg",
+    vibes: ["sofisticada", "natural", "elegante", "minimalista"],
+  },
+  {
+    id: "fino-multicolor-concha",
+    name: "Collar Arrecife",
+    collection: "Perla de Mar",
+    type: "collar",
+    materials: ["cuentas multicolor", "perla", "concha"],
+    colors: ["rosa", "turquesa", "multicolor"],
+    description:
+      "Un arrecife en tu cuello: cuentas multicolor, perlas y una concha. Alegre y único, como tú. 🐚",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/fino-multicolor-concha.jpg",
+    vibes: ["vibrante", "única", "expresiva", "alegre"],
+  },
+  {
+    id: "fino-ojo-turco",
+    name: "Collar Perla Ojo Turco",
+    collection: "Perla de Mar",
+    type: "collar",
+    materials: ["perlas pequeñas", "medallón ojo turco"],
+    colors: ["blanco perla", "dorado"],
+    description:
+      "Perlas pequeñas con un medallón de ojo turco para la buena energía. Delicado y protector. 🧿",
+    price: null,
+    available: true,
+    customizable: false,
+    image: "/products/fino-ojo-turco.jpg",
+    vibes: ["delicada", "significativa", "elegante", "minimalista"],
+  },
+
+  // ─────────────────────────── KIDS (infantil) ───────────────────────────
+  {
+    id: "kids-menta-estrella",
+    name: "Collar Kids Menta",
+    collection: "Kids",
+    type: "collar",
+    materials: ["cuentas grandes", "estrella dorada"],
+    colors: ["verde menta", "dorado"],
+    description:
+      "Para las pequeñas: cuentas verde menta con una estrella dorada. Colorido y resistente. 🌟",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/kids-menta-estrella.jpg",
+    vibes: ["divertida", "juvenil", "regalo", "alegre"],
+  },
+  {
+    id: "kids-corazon-rosa",
+    name: "Collar Kids Corazón",
+    collection: "Kids",
+    type: "collar",
+    materials: ["cuentas grandes crema", "corazón rosa"],
+    colors: ["crema", "rosa"],
+    description:
+      "Cuentas crema con un corazón rosa. El regalo perfecto para una niña especial. 💕",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/kids-corazon-rosa.jpg",
+    vibes: ["tierna", "regalo", "dulce", "romántica"],
+  },
+  {
+    id: "kids-rosa-estrella",
+    name: "Collar Kids Estrella Rosa",
+    collection: "Kids",
+    type: "collar",
+    materials: ["cuentas grandes rosa", "estrella rosa"],
+    colors: ["rosa"],
+    description:
+      "Todo rosa con una estrella de mar a juego. Para las princesas del mar. 🌸",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/kids-rosa-estrella.jpg",
+    vibes: ["dulce", "juvenil", "tierna", "regalo"],
+  },
+  {
+    id: "kids-lila-cruz",
+    name: "Collar Kids Lila",
+    collection: "Kids",
+    type: "collar",
+    materials: ["cuentas grandes lila", "cruz dorada"],
+    colors: ["lila", "dorado"],
+    description:
+      "Cuentas lila con una cruz dorada. Tierno y con significado para las más pequeñas. ✨",
+    price: null,
+    available: true,
+    customizable: true,
+    image: "/products/kids-lila-cruz.jpg",
+    vibes: ["tierna", "significativa", "regalo", "dulce"],
   },
 ];
 

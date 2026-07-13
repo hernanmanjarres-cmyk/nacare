@@ -43,7 +43,11 @@ export const businessFacts: { topic: string; fact: string }[] = [
   },
   {
     topic: "Colecciones",
-    fact: "Trabajamos por colecciones temáticas que van rotando: Perla de Mar, Fiestas del Mar, Bubblegum, Santa Marta 501 años, Selección Colombia, y piezas para fechas especiales como el Día del Docente.",
+    fact: "Trabajamos por colecciones: Bubblegum (collares de cuentas grandes y coloridas), Perla de Mar (piezas finas y delicadas con dijes de mar como conchas, estrellas y colas de ballena), Kids (collares infantiles), y ediciones especiales como Fiestas del Mar.",
+  },
+  {
+    topic: "Colección Kids",
+    fact: "Tenemos una línea Kids: collares de cuentas grandes en colores alegres (rosa, lila, verde menta) con dijes de estrella, corazón y más. Ideales para regalar a las niñas de la casa.",
   },
   {
     topic: "Materiales",
