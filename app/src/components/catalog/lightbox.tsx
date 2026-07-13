@@ -6,6 +6,11 @@ import type { Product } from "@/data/products";
 import { ButtonLink } from "@/components/ui/button";
 import { whatsappLink, orderMessage } from "@/lib/utils";
 
+/** Devuelve la versión completa (vertical) de la foto para el lightbox. */
+function fullImage(image: string): string {
+  return image.replace("/products/", "/products/full/");
+}
+
 /**
  * Lightbox: muestra la foto de un producto en grande sobre un fondo oscuro.
  * Se cierra con la X, con clic fuera de la imagen, o con la tecla Escape.
@@ -54,14 +59,15 @@ export function Lightbox({
           ✕
         </button>
 
-        {/* Imagen grande */}
-        <div className="relative aspect-square w-full bg-cream">
+        {/* Imagen grande — completa y vertical (sin recortar) */}
+        <div className="relative flex max-h-[60vh] w-full items-center justify-center overflow-hidden bg-cream">
           <Image
-            src={product.image}
+            src={fullImage(product.image)}
             alt={product.name}
-            fill
+            width={1000}
+            height={1400}
             sizes="(max-width: 512px) 100vw, 512px"
-            className="object-contain"
+            className="max-h-[60vh] w-auto object-contain"
           />
         </div>
 
